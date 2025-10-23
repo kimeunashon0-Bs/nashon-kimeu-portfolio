@@ -1,13 +1,45 @@
-
-import TypewriterText from "./TypewriterText";
+import { useState, useEffect } from "react";
 
 const HeroSection = () => {
-  const roles = [
-    "Frontend Developer",
-    "Data Analyst",
-    "SQL Developer", 
-    "Web Developer",
-  ];
+  const [displayedName, setDisplayedName] = useState("");
+  const [displayedRole, setDisplayedRole] = useState("");
+  const [showCursor1, setShowCursor1] = useState(true);
+  const [showCursor2, setShowCursor2] = useState(false);
+  const fullName = "Hi, I'm Nashon Kimeu";
+  const fullRole = "Product & Experience Designer | Software Engineer";
+
+  useEffect(() => {
+    let nameIndex = 0;
+    let roleIndex = 0;
+    let nameTyping = true;
+    
+    const typeWriter = () => {
+      if (nameTyping && nameIndex <= fullName.length) {
+        setDisplayedName(fullName.substring(0, nameIndex));
+        nameIndex++;
+        
+        if (nameIndex > fullName.length) {
+          nameTyping = false;
+          setShowCursor1(false);
+          setShowCursor2(true);
+          setTimeout(() => {
+            const roleInterval = setInterval(() => {
+              if (roleIndex <= fullRole.length) {
+                setDisplayedRole(fullRole.substring(0, roleIndex));
+                roleIndex++;
+              } else {
+                clearInterval(roleInterval);
+                setShowCursor2(true);
+              }
+            }, 50);
+          }, 300);
+        }
+      }
+    };
+
+    const interval = setInterval(typeWriter, 80);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
@@ -84,15 +116,26 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 animate-float-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-4">
-              Hi, I'm{" "}
-              <span className="text-primary bg-clip-text">Nashon Kimeu</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-4 min-h-[4rem]">
+              <span className="text-primary bg-clip-text inline-block">
+                {displayedName}
+                {showCursor1 && <span className="animate-pulse ml-1">|</span>}
+              </span>
             </h1>
-            <h2 className="text-xl md:text-2xl mb-6 flex items-center">
-              I'm a <span className="mx-2"><TypewriterText texts={roles} /></span>
+            <h2 className="text-xl md:text-2xl mb-6 text-muted-foreground min-h-[3rem]">
+              {displayedRole}
+              {showCursor2 && displayedRole.length === fullRole.length && (
+                <span className="animate-pulse ml-1">|</span>
+              )}
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-lg">
-              Hi! I'm Nashon, a passionate frontend developer and data analyst who thrives at the intersection of design, technology, and data insights. I specialize in building intuitive user interfaces while leveraging my expertise in SQL, Excel, and data analysis to extract meaningful insights from complex datasets. I'm always eager to learn new tools, adapt quickly to different challenges, and create solutions that are both visually appealing and data-driven. I bring flexibility, analytical thinking, and strong attention to detail to every project I work on.
+              I design solutions that make technology feel natural and genuinely useful — especially for real people in real-world settings. With a background in software engineering, I enjoy working where digital products meet everyday experiences, turning insights from users into thoughtful, practical designs.
+            </p>
+            <p className="text-muted-foreground text-lg mb-8 max-w-lg">
+              I'm passionate about creating intuitive, safe, and accessible experiences that improve how people interact with technology and essential tools — from digital interfaces to physical systems. I thrive in cross-functional teams, collaborating with engineers, product managers, and field users to design products that are both efficient and human-centered.
+            </p>
+            <p className="text-muted-foreground text-lg mb-8 max-w-lg">
+              My goal is simple: to build designs that empower people, enhance usability, and create lasting impact in communities that need it most.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
