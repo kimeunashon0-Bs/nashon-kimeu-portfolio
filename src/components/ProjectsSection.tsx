@@ -6,6 +6,7 @@ import fantasyops5 from "@/assets/fantasyops5.png";
 import fantasyops6 from "@/assets/fantasyops6.png";
 import orina1 from "@/assets/orina1.png";
 import orina2 from "@/assets/orina2.png";
+import orina3 from "@/assets/orina2.png";
 
 const ProjectsSection = () => {
   const projects = [
