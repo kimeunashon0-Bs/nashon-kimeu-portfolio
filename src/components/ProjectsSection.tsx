@@ -6,7 +6,7 @@ import fantasyops5 from "@/assets/fantasyops5.png";
 import fantasyops6 from "@/assets/fantasyops6.png";
 import orina1 from "@/assets/orina1.png";
 import orina2 from "@/assets/orina2.png";
-import orina3 from "@/assets/orina2.png";
+import orina3 from "@/assets/orina3.png";
 
 const ProjectsSection = () => {
   const projects = [
@@ -20,7 +20,7 @@ const ProjectsSection = () => {
       title: "Orina Crochet Website",
       description: "A clean and interactive website built for a crochet business. The design emphasizes warmth, creativity, and simplicity, offering users an easy way to explore products and connect directly through WhatsApp for personalized orders. The layout is friendly, responsive, and built for smooth browsing across all devices.",
       link: "https://orena-crochet-whispers-31472.vercel.app",
-      screenshots: [orina1, orina2]
+      screenshots: [orina1, orina2, orina3]
     },
   ];
 
