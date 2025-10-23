@@ -1,42 +1,29 @@
-
 const ExperienceSection = () => {
   const experiences = [
     {
-      title: "Software Dev Intern",
-      company: "Credwave",
-      period: "Feb 2025–Present",
-      description: "Developing frontend features in Next.js and handling API integrations."
+      title: "Software Developer",
+      company: "Credwave, Westlands",
+      period: "Feb 2025 – Oct 2025",
+      description: "At Credwave, I helped design and co-develop internal tools like the Referral App and Policy Tracker, which simplified workflows and reduced manual follow-ups by 40%. I worked closely with engineers and product managers to ensure every feature addressed real user challenges. Through user interviews and feedback sessions, I refined UI components for better clarity and accessibility. I also built Power BI dashboards to visualize system usage and identify recurring pain points, helping the team make data-backed design improvements."
     },
     {
-      title: "Freelance QA Tester",
-      company: "Testlio",
-      period: "2024",
-      description: "Conducting web & mobile testing, creating detailed bug reports, and developing comprehensive test cases."
+      title: "IT Support & Digital Literacy Trainer (Voluntary)",
+      company: "Micato Safaris, Mukuru Kwa Njenga",
+      period: "June 2024 – Sep 2024",
+      description: "I trained over 50 learners in digital literacy, software use, and the basics of user experience design. My focus was on helping first-time users gain confidence and navigate technology smoothly. I also created easy-to-follow user guides and provided IT support that improved both system reliability and user satisfaction. This experience deepened my understanding of designing for inclusivity and accessibility in real-world environments."
     },
     {
-      title: "ICT Intern",
-      company: "Ministry of Transport",
-      period: "2023",
-      description: "Provided network support, performed troubleshooting, and conducted training sessions."
-    },
-    {
-      title: "IT Support Volunteer",
-      company: "Micato Safaris",
-      period: "2022",
-      description: "Trained 52 learners in digital skills and provided technical support."
-    },
-    {
-      title: "IT Assistant",
-      company: "Jumia",
-      period: "2021",
-      description: "Set up devices and provided end-user support for staff."
+      title: "Inventory & Checkout Officer",
+      company: "Jumia Kenya, Nairobi",
+      period: "Apr 2023 – Dec 2023",
+      description: "At Jumia, I analyzed and optimized the customer journey in order tracking by identifying bottlenecks in the fulfillment system using Grafana dashboards. I designed Power BI reports to visualize delivery performance and enhance communication between logistics teams. Working with both warehouse and customer service departments, I helped streamline operations and reduce user friction in digital workflows — ensuring smoother end-to-end service experiences."
     },
   ];
 
   return (
     <section id="experience" className="section bg-secondary/50 dark:bg-gray-900/50">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title">Work Experience</h2>
+        <h2 className="section-title">Experience</h2>
         
         <div className="relative">
           {experiences.map((exp, index) => (
