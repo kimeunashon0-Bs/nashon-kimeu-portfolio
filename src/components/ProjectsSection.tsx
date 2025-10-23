@@ -1,51 +1,67 @@
-
-import ProjectCard from "./ProjectCard";
+import fantasyops1 from "@/assets/fantasyops1.png";
+import fantasyops2 from "@/assets/fantasyops2.png";
+import fantasyops3 from "@/assets/fantasyops3.png";
+import fantasyops4 from "@/assets/fantasyops4.png";
+import fantasyops5 from "@/assets/fantasyops5.png";
+import fantasyops6 from "@/assets/fantasyops6.png";
+import orina1 from "@/assets/orina1.png";
+import orina2 from "@/assets/orina2.png";
 
 const ProjectsSection = () => {
   const projects = [
-    // {
-    //   title: "FPL Gaming Web App",
-    //   description: "Fantasy football with M-PESA wallet, auto payouts, and league panel",
-    //   image: "/project1.jpg",
-    //   defaultImage: "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-    // },
     {
-      title: "GameTrack App",
-      description: "PlayStation match result tracker with M-PESA balance integration",
-      image: "/project2.jpg",
-      defaultImage: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-      link: "" // Adding empty link property to fix the type error
+      title: "FantasyOps – Fantasy Football Community Platform",
+      description: "FantasyOps is a web app built for Fantasy Premier League enthusiasts — a space where fans can compete, gain insights, and monetize their analytical skills. I designed the user interface to feel sporty, interactive, and data-driven, with smooth navigation and strong community focus.",
+      link: "https://fantasyops-squad-builder-09.vercel.app",
+      screenshots: [fantasyops1, fantasyops2, fantasyops3, fantasyops4, fantasyops5, fantasyops6]
     },
     {
-      title: "Sobriety App",
-      description: "Online rehab tracker with motivation tools and goal monitoring",
-      image: "/project3.jpg",
-      defaultImage: "https://images.unsplash.com/photo-1557825835-70d97c4aa567?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      link: "" // Adding empty link property to fix the type error
-    },
-    {
-      title: "Premier Arena ",
-      description: "This project showcases my ability to structure dynamic layouts, incorporate interactive transitions, and craft user-centric dashboards.",
-      image: "/project4.jpg",
-      defaultImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80",
-      link: "https://preview--premier-arena-royale-45.lovable.app/user-dashboard"
+      title: "Orina Crochet Website",
+      description: "A clean and interactive website built for a crochet business. The design emphasizes warmth, creativity, and simplicity, offering users an easy way to explore products and connect directly through WhatsApp for personalized orders. The layout is friendly, responsive, and built for smooth browsing across all devices.",
+      link: "https://orena-crochet-whispers-31472.vercel.app",
+      screenshots: [orina1, orina2]
     },
   ];
 
   return (
     <section id="projects" className="section">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title">Featured Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 className="section-title">Projects</h2>
+        <div className="space-y-16">
           {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
-              image={project.image}
-              defaultImage={project.defaultImage}
-              link={project.link}
-            />
+            <div key={index} className="space-y-6">
+              {/* Project Header */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between flex-wrap gap-4">
+                  <h3 className="text-2xl md:text-3xl font-bold">{project.title}</h3>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                  >
+                    View Live Project →
+                  </a>
+                </div>
+                <p className="text-muted-foreground text-lg max-w-4xl">{project.description}</p>
+              </div>
+
+              {/* Screenshots Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {project.screenshots.map((screenshot, screenshotIndex) => (
+                  <div 
+                    key={screenshotIndex} 
+                    className="rounded-lg overflow-hidden border bg-card shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <img
+                      src={screenshot}
+                      alt={`${project.title} screenshot ${screenshotIndex + 1}`}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
